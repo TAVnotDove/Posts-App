@@ -7,6 +7,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { LoginComponent } from './login/login.component';
     NavigationComponent,
     HomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent,
+    ProfileComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
