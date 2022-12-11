@@ -15,4 +15,13 @@ export class UserService {
             }}
         )
     }
+
+    loginUser(userData: {email: string, password: string}) {
+        return this.http.post("http://localhost:3030/users/login",
+            JSON.stringify(userData),
+            {headers: {
+                "Content-Type": "application/json",
+            }}    
+        )
+    }
 }
