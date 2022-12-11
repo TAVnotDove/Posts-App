@@ -13,6 +13,7 @@ import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from "@angular/common/http"
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CreatePostComponent } from './create-post/create-post.component';
     LogoutComponent,
     ProfileComponent,
     PostsComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,
