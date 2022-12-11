@@ -16,4 +16,8 @@ export class PostsService {
             }}
         )
     }
+    
+    getPosts() {
+        return this.http.get("http://localhost:3030/data/posts")
+    }
 }
