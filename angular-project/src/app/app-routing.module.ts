@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { DeletePostComponent } from './delete-post/delete-post.component';
 
 const routes: Routes = [{
   path: "",
@@ -45,6 +46,10 @@ const routes: Routes = [{
 {
   path: "post/edit/:postId",
   component: EditPostComponent,
+},
+{
+  path: "post/delete/:postId",
+  component: DeletePostComponent,
 }];
 
 @NgModule({

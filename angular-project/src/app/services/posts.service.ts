@@ -26,6 +26,14 @@ export class PostsService {
             }}
         )
     }
+
+    deletePost(accessToken: string, postId: string) {
+        return this.http.delete(`http://localhost:3030/data/posts/${postId}`,
+            {headers: {
+                "X-Authorization": accessToken,
+            }}
+        )
+    }
     
     getPost(postId: string) {
         return this.http.get(`http://localhost:3030/data/posts/${postId}`)
