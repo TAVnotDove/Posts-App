@@ -1,0 +1,7 @@
+<form [formGroup]="form" (ngSubmit)="createPost()">
+    <label>Title:</label>
+    <input formControlName="title" type="text"/>
+    <label>Text:</label>
+    <input formControlName="text" type="text"/>
+    <button>Submit</button>
+</form>

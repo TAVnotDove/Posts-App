@@ -1,5 +1,12 @@
 <div>
+    <div *ngFor="let post of posts">
+        <h2>{{post.title}}</h2>
+        <p>{{post.text}}</p>
+        <button [routerLink]="['/post/edit', post._id]">Edit</button>
+        <button [routerLink]="['/post/delete', post._id]">Delete</button>
+    </div>
     <p>
         There are currently no posts.
     </p>
 </div>
+<button routerLink="/post/create">Create post</button>
