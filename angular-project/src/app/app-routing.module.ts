@@ -10,6 +10,7 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { DeletePostComponent } from './delete-post/delete-post.component';
 import { NotAuthenticatedGuard } from './guards/not-authenticated.guard';
+import { AuthenticatedGuard } from './guards/authenticated.guard';
 
 const routes: Routes = [{
   path: "",
@@ -18,14 +19,17 @@ const routes: Routes = [{
 },
 {
   path: "home",
+  canActivate: [AuthenticatedGuard],
   component: HomeComponent
 },
 {
   path: "register",
+  canActivate: [AuthenticatedGuard],
   component: RegisterComponent
 },
 {
   path: "login",
+  canActivate: [AuthenticatedGuard],
   component: LoginComponent
 },
 {
