@@ -9,6 +9,7 @@ import { PostsComponent } from './posts/posts.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { DeletePostComponent } from './delete-post/delete-post.component';
+import { NotAuthenticatedGuard } from './guards/not-authenticated.guard';
 
 const routes: Routes = [{
   path: "",
@@ -29,10 +30,12 @@ const routes: Routes = [{
 },
 {
   path: "logout",
+  canActivate: [NotAuthenticatedGuard],
   component: LogoutComponent
 },
 {
   path: "profile",
+  canActivate: [NotAuthenticatedGuard],
   component: ProfileComponent
 },
 {
@@ -41,6 +44,7 @@ const routes: Routes = [{
 },
 {
   path: "post/create",
+  canActivate: [NotAuthenticatedGuard],
   component: CreatePostComponent
 },
 {
