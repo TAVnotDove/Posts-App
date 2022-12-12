@@ -1,8 +1,13 @@
 <nav>
-    <a routerLink="/home">Home</a>
-    <a routerLink="/profile">Profile</a>
-    <a routerLink="/posts">Posts</a>
-    <a routerLink="/register">Register</a>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/logout">Logout</a>
+    <ng-container *ngIf="isLoggedIn">
+        <a routerLink="/posts">Posts</a>
+        <a routerLink="/profile">Profile</a>
+        <a routerLink="/logout">Logout</a>
+    </ng-container>
+    <ng-container *ngIf="!isLoggedIn">
+        <a routerLink="/home">Home</a>
+        <a routerLink="/posts">Posts</a>
+        <a routerLink="/login">Login</a>
+        <a routerLink="/register">Register</a>
+    </ng-container>
 </nav>
