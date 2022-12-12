@@ -11,6 +11,7 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { DeletePostComponent } from './delete-post/delete-post.component';
 import { NotAuthenticatedGuard } from './guards/not-authenticated.guard';
 import { AuthenticatedGuard } from './guards/authenticated.guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [{
   path: "",
@@ -58,6 +59,10 @@ const routes: Routes = [{
 {
   path: "post/delete/:postId",
   component: DeletePostComponent,
+},
+{
+  path: "**",
+  component: PageNotFoundComponent,
 }];
 
 @NgModule({
