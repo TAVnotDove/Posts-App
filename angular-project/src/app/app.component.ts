@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-project';
+  userIsLoggedIn: boolean = false;
+
+  constructor(private router: Router, private userService: UserService){}
+
+  ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event.constructor.name === "NavigationEnd") {
+        this.userIsLoggedIn = this.userService.authenticateUser()
+      }
+    })
+  }
 }

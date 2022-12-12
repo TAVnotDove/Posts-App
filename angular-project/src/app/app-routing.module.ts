@@ -9,6 +9,9 @@ import { PostsComponent } from './posts/posts.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { DeletePostComponent } from './delete-post/delete-post.component';
+import { NotAuthenticatedGuard } from './guards/not-authenticated.guard';
+import { AuthenticatedGuard } from './guards/authenticated.guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [{
   path: "",
@@ -17,22 +20,27 @@ const routes: Routes = [{
 },
 {
   path: "home",
+  canActivate: [AuthenticatedGuard],
   component: HomeComponent
 },
 {
   path: "register",
+  canActivate: [AuthenticatedGuard],
   component: RegisterComponent
 },
 {
   path: "login",
+  canActivate: [AuthenticatedGuard],
   component: LoginComponent
 },
 {
   path: "logout",
+  canActivate: [NotAuthenticatedGuard],
   component: LogoutComponent
 },
 {
   path: "profile",
+  canActivate: [NotAuthenticatedGuard],
   component: ProfileComponent
 },
 {
@@ -41,6 +49,7 @@ const routes: Routes = [{
 },
 {
   path: "post/create",
+  canActivate: [NotAuthenticatedGuard],
   component: CreatePostComponent
 },
 {
@@ -50,6 +59,10 @@ const routes: Routes = [{
 {
   path: "post/delete/:postId",
   component: DeletePostComponent,
+},
+{
+  path: "**",
+  component: PageNotFoundComponent,
 }];
 
 @NgModule({

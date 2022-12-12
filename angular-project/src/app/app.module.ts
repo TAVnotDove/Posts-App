@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { DeletePostComponent } from './delete-post/delete-post.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DeletePostComponent } from './delete-post/delete-post.component';
     PostsComponent,
     CreatePostComponent,
     EditPostComponent,
-    DeletePostComponent
+    DeletePostComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

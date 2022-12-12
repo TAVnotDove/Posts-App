@@ -24,4 +24,10 @@ export class UserService {
             }}    
         )
     }
+
+    authenticateUser(): boolean {
+        if (JSON.parse(localStorage.getItem("user")!)) return true
+
+        return false
+    }
 }
