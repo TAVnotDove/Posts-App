@@ -16,6 +16,7 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { DeletePostComponent } from './delete-post/delete-post.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CreatePostComponent,
     EditPostComponent,
     DeletePostComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -2,9 +2,8 @@
     <ng-container *ngIf="posts">
         <div *ngFor="let post of posts">
             <h2>{{post.title}}</h2>
-            <p>{{post.text}}</p>
-            <button [routerLink]="['/post/edit', post._id]">Edit</button>
-            <button [routerLink]="['/post/delete', post._id]">Delete</button>
+            <p>By {{post.username}}</p>
+            <button [routerLink]="['/post/details', post._id]">Details</button>
         </div>
     </ng-container>
     <ng-container *ngIf="!posts">

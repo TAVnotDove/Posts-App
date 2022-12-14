@@ -1,0 +1,9 @@
+<ng-container *ngIf="post">
+    <div>
+        <h2>{{post.title}}</h2>
+        <p>{{post.text}}</p>
+        <p>By {{post.username}}</p>
+        <button [routerLink]="['/post/edit', post._id]">Edit</button>
+        <button [routerLink]="['/post/delete', post._id]">Delete</button>
+    </div>
+</ng-container>
