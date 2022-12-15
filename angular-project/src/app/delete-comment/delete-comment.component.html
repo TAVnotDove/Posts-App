@@ -1,0 +1,5 @@
+<div>
+    <p>Are you sure you want to delete this post?</p>
+    <button (click)="deleteComment()">Yes</button>
+    <button [routerLink]="['/post/details', comment?.postId]">No</button>
+</div>

@@ -13,6 +13,8 @@ import { NotAuthenticatedGuard } from './guards/not-authenticated.guard';
 import { AuthenticatedGuard } from './guards/authenticated.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
+import { EditCommentComponent } from './edit-comment/edit-comment.component';
+import { DeleteCommentComponent } from './delete-comment/delete-comment.component';
 
 const routes: Routes = [{
   path: "",
@@ -64,6 +66,14 @@ const routes: Routes = [{
 {
   path: "post/details/:postId",
   component: PostDetailsComponent,
+},
+{
+  path: "comment/edit/:commentId",
+  component: EditCommentComponent,
+},
+{
+  path: "comment/delete/:commentId",
+  component: DeleteCommentComponent,
 },
 {
   path: "**",
