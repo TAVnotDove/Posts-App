@@ -10,7 +10,7 @@ import { CommentsService } from '../services/comments.service';
 })
 export class PostCommentsComponent implements OnInit {
   comments: any = null
-  isOwner: boolean = false
+  user: any = null
 
   form = this.fb.group({
     comment: [],
@@ -22,6 +22,12 @@ export class PostCommentsComponent implements OnInit {
     private activatedRoute: ActivatedRoute){}
 
   ngOnInit(): void {
+    const user = JSON.parse(localStorage.getItem("user")!);
+    
+    if (user) {
+      this.user = user
+    }
+
     this.updateComments()
   }
 
@@ -41,13 +47,12 @@ export class PostCommentsComponent implements OnInit {
   createComment(): void {
     const commentData = this.form.value
     const postId = this.activatedRoute.snapshot.paramMap.get("postId")
-    const user = JSON.parse(localStorage.getItem("user")!);
 
     this.commentsService.createComment({
       postId: postId!,
       comment: commentData.comment!,
-      author: user.username
-    }, user.accessToken!).subscribe({
+      author: this.user.username
+    }, this.user.accessToken!).subscribe({
         next: () => {
           this.updateComments()
         },

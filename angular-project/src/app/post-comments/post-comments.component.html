@@ -3,6 +3,9 @@
         <div *ngFor="let comment of comments">
             <h4>{{comment.author}}</h4>
             <p>{{comment.comment}}</p>
+            <ng-container *ngIf="user && comment._ownerId === user._id">
+                <button [routerLink]="['/comment/edit', comment._id]">Edit</button>
+            </ng-container>
         </div>
     </ng-container>
     <ng-container *ngIf="!comments">
