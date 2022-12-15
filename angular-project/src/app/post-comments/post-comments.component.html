@@ -1,0 +1,18 @@
+<div>
+    <ng-container *ngIf="comments">
+        <div *ngFor="let comment of comments">
+            <h4>{{comment.author}}</h4>
+            <p>{{comment.comment}}</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!comments">
+        <p>
+            There are currently no comments.
+        </p>
+    </ng-container>
+</div>
+<form [formGroup]="form" (ngSubmit)="createComment()">
+    <label>Comment:</label>
+    <input formControlName="comment" type="text"/>
+    <button>Submit</button>
+</form>
