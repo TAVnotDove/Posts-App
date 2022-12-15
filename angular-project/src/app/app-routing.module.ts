@@ -12,6 +12,7 @@ import { DeletePostComponent } from './delete-post/delete-post.component';
 import { NotAuthenticatedGuard } from './guards/not-authenticated.guard';
 import { AuthenticatedGuard } from './guards/authenticated.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 const routes: Routes = [{
   path: "",
@@ -59,6 +60,10 @@ const routes: Routes = [{
 {
   path: "post/delete/:postId",
   component: DeletePostComponent,
+},
+{
+  path: "post/details/:postId",
+  component: PostDetailsComponent,
 },
 {
   path: "**",

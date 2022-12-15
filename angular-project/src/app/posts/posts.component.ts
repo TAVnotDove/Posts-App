@@ -13,8 +13,12 @@ export class PostsComponent implements OnInit {
   
   ngOnInit(): void {
     this.postsService.getPosts().subscribe({
-      next: (v) => {
-        this.posts = v
+      next: (v: any) => {
+        if (v?.length === 0){
+          this.posts = null
+        } else {
+          this.posts = v
+        }
       },
       error: (e) => {
         console.error(e)
