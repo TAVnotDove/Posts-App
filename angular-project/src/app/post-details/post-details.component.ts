@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../services/posts.service';
+import { dateConverter } from '../utils/date-converter.util';
 
 @Component({
   selector: 'app-post-details',
@@ -16,9 +17,15 @@ export class PostDetailsComponent {
   ngOnInit(): void {
     const postId = this.activatedRoute.snapshot.paramMap.get("postId")
     const user = JSON.parse(localStorage.getItem("user")!);
-    
+
     this.postsService.getPost(postId!).subscribe({
       next: (v: any) => {
+        v._createdOn = dateConverter(v._createdOn)
+
+        if (v._updatedOn) {
+          v._updatedOn = dateConverter(v._updatedOn)
+        }
+        
         this.post = v
 
         if (user) {

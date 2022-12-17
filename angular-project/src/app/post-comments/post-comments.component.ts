@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CommentsService } from '../services/comments.service';
+import { dateConverter } from '../utils/date-converter.util';
 import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
 
 @Component({
@@ -40,7 +41,17 @@ export class PostCommentsComponent implements OnInit {
           if (v?.length === 0){
             this.comments = null
           } else {
-            const filteredComments = v.filter((x: any) => x.postId === postId);
+            const mappedComments = v.map((x: any) => {
+              x._createdOn = dateConverter(x._createdOn)
+  
+              if (x._updatedOn) {
+                x._updatedOn = dateConverter(x._updatedOn)
+              }
+
+              return x
+            })
+
+            const filteredComments = mappedComments.filter((x: any) => x.postId === postId);
 
             if (filteredComments.length === 0) {
               this.comments = null
