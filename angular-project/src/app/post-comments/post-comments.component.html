@@ -18,5 +18,8 @@
 <form [formGroup]="form" (ngSubmit)="createComment()">
     <label>Comment:</label>
     <input formControlName="comment" type="text"/>
-    <button>Submit</button>
+    <button [disabled]="!form.valid">Submit</button>
+    <ng-container *ngIf="error">
+        <p>{{error}}</p>
+    </ng-container>
 </form>

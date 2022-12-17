@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CommentsService } from '../services/comments.service';
+import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
 
 @Component({
   selector: 'app-post-comments',
@@ -9,12 +10,12 @@ import { CommentsService } from '../services/comments.service';
   styleUrls: ['./post-comments.component.css']
 })
 export class PostCommentsComponent implements OnInit {
+  error: string | null = null
   comments: any = null
   user: any = null
 
   form = this.fb.group({
-    comment: [],
-    validators: []
+    comment: ["", [Validators.required, trimmedLengthValidator(1)]]
   })
   
   constructor(private fb: FormBuilder,
@@ -36,7 +37,11 @@ export class PostCommentsComponent implements OnInit {
 
     this.commentsService.getComments().subscribe({
         next: (v: any) => {
-          this.comments = v.filter((x: any) => x.postId === postId);
+          if (v?.length === 0){
+            this.comments = null
+          } else {
+            this.comments = v.filter((x: any) => x.postId === postId);
+          }
         },
         error: (e) => {
           console.error(e)
@@ -51,13 +56,20 @@ export class PostCommentsComponent implements OnInit {
     this.commentsService.createComment({
       postId: postId!,
       comment: commentData.comment!,
-      author: this.user.username
-    }, this.user.accessToken!).subscribe({
+      author: this.user?.username
+    }, this.user?.accessToken!).subscribe({
         next: () => {
+          this.form.reset()
           this.updateComments()
         },
         error: (e) => {
-          console.error(e)
+          if (e.status === 0) {
+            this.error = "The server failed to connect."
+          } else if (e.status === undefined) {
+            this.error = "You need to be logged in to comment."
+          } else {
+            console.error(e)
+          }
         }
     })
   }

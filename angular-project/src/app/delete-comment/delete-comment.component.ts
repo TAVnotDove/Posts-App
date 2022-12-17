@@ -8,6 +8,7 @@ import { CommentsService } from '../services/comments.service';
   styleUrls: ['./delete-comment.component.css']
 })
 export class DeleteCommentComponent implements OnInit {
+  error: string | null = null
   comment: any = null
 
   constructor(private router: Router,
@@ -36,7 +37,13 @@ export class DeleteCommentComponent implements OnInit {
         this.router.navigate([`/post/details/${this.comment.postId}`]);
       },
       error: (e) => {
-        console.error(e)
+        if (e.status === 0) {
+          this.error = "The server failed to connect."
+        } else if (e.status === 403) {
+          this.error = "Deleting isn't authorized."
+        } else {
+          console.error(e)
+        }
       }
     })
   }
