@@ -3,5 +3,8 @@
     <input formControlName="title" type="text"/>
     <label>Text:</label>
     <input formControlName="text" type="text"/>
-    <button>Save changes</button>
+    <button [disabled]="!form.valid">Save changes</button>
+    <ng-container *ngIf="error">
+        <p>{{error}}</p>
+    </ng-container>
 </form>

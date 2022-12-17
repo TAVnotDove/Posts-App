@@ -8,6 +8,8 @@ import { PostsService } from '../services/posts.service';
   styleUrls: ['./delete-post.component.css']
 })
 export class DeletePostComponent {
+  error: string | null = null
+
   constructor(private router: Router,
     private postsService: PostsService,
     private activatedRoute: ActivatedRoute){}
@@ -21,7 +23,13 @@ export class DeletePostComponent {
         this.router.navigate(["/posts"]);
       },
       error: (e) => {
-        console.error(e)
+        if (e.status === 0) {
+          this.error = "The server failed to connect."
+        } else if (e.status === 403) {
+          this.error = "Deleting isn't authorized."
+        } else {
+          console.error(e)
+        }
       }
   })
   }

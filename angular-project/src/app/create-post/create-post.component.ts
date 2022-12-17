@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { PostsService } from '../services/posts.service';
 import { Router } from '@angular/router';
+import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
 
 @Component({
   selector: 'app-create-post',
@@ -9,10 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent {
+  error: string | null = null
+  
   form = this.fb.group({
-    title: [],
-    text: [],
-    validators: []
+    title: ["", [Validators.required, trimmedLengthValidator(1)]],
+    text: ["", [Validators.required, trimmedLengthValidator(1)]]
   })
 
   constructor(private fb: FormBuilder,
@@ -32,7 +34,13 @@ export class CreatePostComponent {
           this.router.navigate(["/posts"]);
         },
         error: (e) => {
-          console.error(e)
+          if (e.status === 0) {
+            this.error = "The server failed to connect."
+          } else if (e.status === 403) {
+            this.error = "Session timed out."
+          } else {
+            console.error(e)
+          }
         }
     })
   }

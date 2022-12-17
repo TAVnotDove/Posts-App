@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { PostsService } from '../services/posts.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
 
 @Component({
   selector: 'app-edit-post',
@@ -9,10 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit-post.component.css']
 })
 export class EditPostComponent implements OnInit {
+  error: string | null = null
+
   form = this.fb.group({
-    title: [],
-    text: [],
-    validators: []
+    title: ["", [Validators.required, trimmedLengthValidator(1)]],
+    text: ["", [Validators.required, trimmedLengthValidator(1)]]
   })
   
   post: any = null
@@ -30,9 +32,8 @@ export class EditPostComponent implements OnInit {
         this.post = v
 
         this.form = this.fb.group({
-          title: [this.post.title],
-          text: [this.post.text],
-          validators: []
+          title: [this.post.title, [Validators.required, trimmedLengthValidator(1)]],
+          text: [this.post.text, [Validators.required, trimmedLengthValidator(1)]]
         })
       },
       error: (e) => {
@@ -56,7 +57,13 @@ export class EditPostComponent implements OnInit {
         this.router.navigate([`/posts`])
       },
       error: (e) => {
-        console.error(e)
+        if (e.status === 0) {
+          this.error = "The server failed to connect."
+        } else if (e.status === 403) {
+          this.error = "Editing isn't authorized."
+        } else {
+          console.error(e)
+        }
       }
     })
   }

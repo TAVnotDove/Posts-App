@@ -16,7 +16,7 @@ export class RegisterComponent {
   error: string | null = null
 
   form = this.fb.group({
-    username: [null, [Validators.required, trimmedLengthValidator(3)]],
+    username: ["", [Validators.required, trimmedLengthValidator(3)]],
     email: ["", [Validators.required, emailValidator()]],
     passwords: this.fb.group(
       {
