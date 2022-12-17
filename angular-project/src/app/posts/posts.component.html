@@ -13,3 +13,6 @@
     </ng-container>
 </div>
 <button routerLink="/post/create">Create post</button>
+<ng-container *ngIf="error">
+    <p>{{error}}</p>
+</ng-container>
