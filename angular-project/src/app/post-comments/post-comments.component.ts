@@ -40,7 +40,13 @@ export class PostCommentsComponent implements OnInit {
           if (v?.length === 0){
             this.comments = null
           } else {
-            this.comments = v.filter((x: any) => x.postId === postId);
+            const filteredComments = v.filter((x: any) => x.postId === postId);
+
+            if (filteredComments.length === 0) {
+              this.comments = null
+            } else { 
+              this.comments = filteredComments
+            }
           }
         },
         error: (e) => {

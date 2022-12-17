@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { EditCommentComponent } from './edit-comment/edit-comment.component';
 import { DeleteCommentComponent } from './delete-comment/delete-comment.component';
+import { ProfilePostsComponent } from './profile-posts/profile-posts.component';
 
 const routes: Routes = [{
   path: "",
@@ -74,6 +75,10 @@ const routes: Routes = [{
 {
   path: "comment/delete/:commentId",
   component: DeleteCommentComponent,
+},
+{
+  path: "profile/posts/:profileId",
+  component: ProfilePostsComponent,
 },
 {
   path: "**",

@@ -8,6 +8,8 @@ import { dateConverter } from '../utils/date-converter.util';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  user: any = null
+
   form = this.fb.group({
     username: [""],
     email: [""],
@@ -17,19 +19,19 @@ export class ProfileComponent implements OnInit {
   constructor(private fb: FormBuilder){}
   
   ngOnInit(): void {
-    const user = JSON.parse(localStorage.getItem("user")!);
+    this.user = JSON.parse(localStorage.getItem("user")!);
 
     this.form = this.fb.group({
       username: [{
-        value: user.username,
+        value: this.user.username,
         disabled: true,
       }],
       email: [{
-        value: user.email,
+        value: this.user.email,
         disabled: true,
       }],
       created: [{
-        value: dateConverter(user._createdOn),
+        value: dateConverter(this.user._createdOn),
         disabled: true,
       }]
     })

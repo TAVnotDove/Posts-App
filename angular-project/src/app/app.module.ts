@@ -20,6 +20,7 @@ import { PostDetailsComponent } from './post-details/post-details.component';
 import { PostCommentsComponent } from './post-comments/post-comments.component';
 import { EditCommentComponent } from './edit-comment/edit-comment.component';
 import { DeleteCommentComponent } from './delete-comment/delete-comment.component';
+import { ProfilePostsComponent } from './profile-posts/profile-posts.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DeleteCommentComponent } from './delete-comment/delete-comment.componen
     PostDetailsComponent,
     PostCommentsComponent,
     EditCommentComponent,
-    DeleteCommentComponent
+    DeleteCommentComponent,
+    ProfilePostsComponent
   ],
   imports: [
     BrowserModule,
