@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { dateConverter } from '../utils/date-converter.util';
 
 @Component({
   selector: 'app-profile',
@@ -8,9 +9,9 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
   form = this.fb.group({
-    email: [],
-    password: [],
-    validators: []
+    username: [""],
+    email: [""],
+    created: [""],
   })
 
   constructor(private fb: FormBuilder){}
@@ -19,15 +20,18 @@ export class ProfileComponent implements OnInit {
     const user = JSON.parse(localStorage.getItem("user")!);
 
     this.form = this.fb.group({
+      username: [{
+        value: user.username,
+        disabled: true,
+      }],
       email: [{
         value: user.email,
-        disabled: true
+        disabled: true,
       }],
-      password: [{
-        value: user.password,
-        disabled: true
-      }],
-      validators: []
+      created: [{
+        value: dateConverter(user._createdOn),
+        disabled: true,
+      }]
     })
   }
 }
