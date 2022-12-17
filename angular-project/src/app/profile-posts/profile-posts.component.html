@@ -1,0 +1,17 @@
+<div>
+    <ng-container *ngIf="posts">
+        <div *ngFor="let post of posts">
+            <h2>{{post.title}}</h2>
+            <p>By {{post.username}}</p>
+            <button [routerLink]="['/post/details', post._id]">Details</button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!posts">
+        <p>
+            You have not created any posts yet.
+        </p>
+    </ng-container>
+</div>
+<ng-container *ngIf="error">
+    <p>{{error}}</p>
+</ng-container>
