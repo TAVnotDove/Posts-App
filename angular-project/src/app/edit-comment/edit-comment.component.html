@@ -1,5 +1,8 @@
 <form [formGroup]="form" (ngSubmit)="editComment()">
     <label>Comment:</label>
     <input formControlName="comment" type="text"/>
-    <button>Save changes</button>
+    <button [disabled]="!form.valid">Save changes</button>
+    <ng-container *ngIf="error">
+        <p>{{error}}</p>
+    </ng-container>
 </form>

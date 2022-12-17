@@ -7,6 +7,7 @@ import { PostsService } from '../services/posts.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+  error: string | null = null
   posts: any = null
   
   constructor(private postsService: PostsService,){}
@@ -21,6 +22,8 @@ export class PostsComponent implements OnInit {
         }
       },
       error: (e) => {
+        if (e.status === 0) this.error = "The server failed to connect."
+
         console.error(e)
       }
     })

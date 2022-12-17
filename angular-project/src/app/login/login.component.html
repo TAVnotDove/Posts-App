@@ -3,5 +3,8 @@
     <input formControlName="email" type="email"/>
     <label>Password:</label>
     <input formControlName="password" type="password"/>
-    <button>Submit</button>
+    <button [disabled]="!form.valid">Submit</button>
+    <ng-container *ngIf="error">
+        <p>{{error}}</p>
+    </ng-container>
 </form>
