@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  error: string | null = null
+
   form = this.fb.group({
-    email: [],
-    password: [],
-    validators: []
+    email: ["", [Validators.required]],
+    password: ["", [Validators.required]],
   })
 
   constructor(private fb: FormBuilder,
@@ -31,7 +32,13 @@ export class LoginComponent {
           this.router.navigate(["/"]);
         },
         error: (e) => {
-          console.error(e)
+          if (e.status === 0) {
+            this.error = "The server failed to connect."
+          } else if (e.status === 403) {
+            this.error = "Email or password isn't correct."
+          } else {
+            console.error(e)
+          }
         }
     })
   }
