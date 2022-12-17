@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { confirmPasswordValidator } from '../validators/confirm-passwords.validator';
+import { emailValidator } from '../validators/email.validator';
+import { passwordValidator } from '../validators/password.validator';
+import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
 
 @Component({
   selector: 'app-register',
@@ -9,15 +13,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  error: string | null = null
+
   form = this.fb.group({
-    username: [],
-    email: [],
-    passwords: this.fb.group({
-      password: [],
-      confirmPassword: []
-    }, {
-      validators: []
-    })
+    username: [null, [Validators.required, trimmedLengthValidator(3)]],
+    email: ["", [Validators.required, emailValidator()]],
+    passwords: this.fb.group(
+      {
+        password: ["", [Validators.required, passwordValidator()]],
+        confirmPassword: [""]
+      }, {
+        validators: [confirmPasswordValidator("password", "confirmPassword")]
+      }
+    ),
   })
 
   constructor(private fb: FormBuilder,
@@ -37,7 +45,13 @@ export class RegisterComponent {
           this.router.navigate(["/"]);
         },
         error: (e) => {
-          console.error(e)
+          if (e.status === 0) {
+            this.error = "The server failed to connect."
+          } else if (e.status === 409) {
+            this.error = "Email is already registered."
+          } else {
+            console.error(e)
+          }
         }
     })
   }
