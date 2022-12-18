@@ -3,6 +3,7 @@ div {
     flex-direction: row;
     gap: 20px;
     align-items: center;
+    height: 80vh;
 }
 
 button {

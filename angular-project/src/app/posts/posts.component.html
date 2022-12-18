@@ -1,18 +1,20 @@
-<div>
-    <ng-container *ngIf="posts">
-        <div *ngFor="let post of posts">
-            <h2>{{post.title}}</h2>
-            <p>By {{post.username}}</p>
-            <button [routerLink]="['/post/details', post._id]">Details</button>
-        </div>
-    </ng-container>
-    <ng-container *ngIf="!posts">
-        <p>
-            There are currently no posts.
-        </p>
+<div id="main">
+    <div>
+        <ng-container *ngIf="posts">
+            <div *ngFor="let post of posts">
+                <h2>{{post.title}}</h2>
+                <p>By {{post.username}}</p>
+                <button [routerLink]="['/post/details', post._id]">Details</button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!posts">
+            <p>
+                There are currently no posts.
+            </p>
+        </ng-container>
+    </div>
+    <button routerLink="/post/create">Create post</button>
+    <ng-container *ngIf="error">
+        <p>{{error}}</p>
     </ng-container>
 </div>
-<button routerLink="/post/create">Create post</button>
-<ng-container *ngIf="error">
-    <p>{{error}}</p>
-</ng-container>

@@ -21,6 +21,7 @@ import { PostCommentsComponent } from './post-comments/post-comments.component';
 import { EditCommentComponent } from './edit-comment/edit-comment.component';
 import { DeleteCommentComponent } from './delete-comment/delete-comment.component';
 import { ProfilePostsComponent } from './profile-posts/profile-posts.component';
+import { FooterComponentComponent } from './footer-component/footer-component.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProfilePostsComponent } from './profile-posts/profile-posts.component';
     PostCommentsComponent,
     EditCommentComponent,
     DeleteCommentComponent,
-    ProfilePostsComponent
+    ProfilePostsComponent,
+    FooterComponentComponent
   ],
   imports: [
     BrowserModule,

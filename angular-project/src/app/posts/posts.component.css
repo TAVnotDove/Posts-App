@@ -5,4 +5,12 @@ div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 800px;
+}
+
+div#main {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
