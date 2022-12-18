@@ -3,3 +3,12 @@ div {
     width: 500px;
     height: 80vh;
 }
+
+#comment {
+    background-color: darkgray;
+    height: 150px;
+}
+
+#comment-container {
+    overflow-y: auto;
+}

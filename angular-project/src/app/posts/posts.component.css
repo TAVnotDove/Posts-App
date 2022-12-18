@@ -3,7 +3,6 @@ div {
     width: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 800px;
 }
@@ -13,4 +12,10 @@ div#main {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: darkslategray;
+}
+
+div#post {
+    height: 150px;
+    background-color: gray;
 }

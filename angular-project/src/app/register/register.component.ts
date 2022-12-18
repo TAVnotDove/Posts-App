@@ -17,12 +17,12 @@ export class RegisterComponent {
   error: string | null = null
 
   form = this.fb.group({
-    username: ["tav", [Validators.required, trimmedLengthValidator(3)]],
-    email: ["tav@tav.bg", [Validators.required, emailValidator()]],
+    username: ["", [Validators.required, trimmedLengthValidator(3)]],
+    email: ["", [Validators.required, emailValidator()]],
     passwords: this.fb.group(
       {
-        password: ["123Aa!", [Validators.required, passwordValidator()]],
-        confirmPassword: ["123Aa!"]
+        password: ["", [Validators.required, passwordValidator()]],
+        confirmPassword: [""]
       }, {
         validators: [confirmPasswordValidator("password", "confirmPassword")]
       }

@@ -1,4 +1,6 @@
+
 div {
+    background-color: darkslategray;
     border: 1px solid black;
     width: 250px;
     display: flex;
@@ -6,4 +8,14 @@ div {
     justify-content: center;
     align-items: center;
     height: 80vh;
+}
+
+#post {
+    height: 300px;
+    width: 500px;
+    background-color: gray;
+}
+
+p {
+    text-align: center;
 }
