@@ -2,4 +2,20 @@ form {
     display: flex;
     flex-direction: column;
     width: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: darkslategray;
+    height: 150px;
+}
+
+div.themes {
+    display: flex;
+    justify-content: space-evenly;
+}
+#main {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

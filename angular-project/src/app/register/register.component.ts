@@ -6,6 +6,7 @@ import { confirmPasswordValidator } from '../validators/confirm-passwords.valida
 import { emailValidator } from '../validators/email.validator';
 import { passwordValidator } from '../validators/password.validator';
 import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +31,8 @@ export class RegisterComponent {
 
   constructor(private fb: FormBuilder,
     private userService: UserService,
-    private router: Router){}
+    private router: Router,
+    private themesService: ThemesService){}
 
   register(): void {
     const userData = this.form.value
@@ -40,9 +42,17 @@ export class RegisterComponent {
       email: userData.email!,
       password: userData.passwords?.password!
     }).subscribe({
-        next: (v) => {
+        next: (v: any) => {
           localStorage.setItem("user", JSON.stringify(v));
-          this.router.navigate(["/"]);
+          
+          this.themesService.setTheme({theme: "lightTheme"}, v.accessToken).subscribe({
+            next: () => {
+              this.router.navigate(["/"]);
+            },
+            error: (e) => {
+              console.error(e)
+            }
+          })
         },
         error: (e) => {
           if (e.status === 0) {
@@ -54,5 +64,6 @@ export class RegisterComponent {
           }
         }
     })
+
   }
 }

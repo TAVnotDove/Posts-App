@@ -1,13 +1,13 @@
 <ng-container *ngIf="post">
-    <div>
+<div id="post">
         <h2>{{post.title}}</h2>
         <p>{{post.text}}</p>
         <p>By {{post.username}}</p>
         <p>Created: {{post._createdOn}}</p>  
         <p *ngIf="post._updatedOn">Edited: {{post._updatedOn}}</p>
         <ng-container *ngIf="isOwner">
-            <button [routerLink]="['/post/edit', post._id]">Edit</button>
-            <button [routerLink]="['/post/delete', post._id]">Delete</button>
+                <button [routerLink]="['/post/edit', post._id]">Edit</button>
+                <button [routerLink]="['/post/delete', post._id]">Delete</button>
         </ng-container>
     </div>
 </ng-container>

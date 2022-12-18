@@ -1,6 +1,6 @@
-<div>
+<div id="comment-container">
     <ng-container *ngIf="comments">
-        <div *ngFor="let comment of comments">
+        <div id="comment" *ngFor="let comment of comments">
             <h4>{{comment.author}}</h4>
             <p>{{comment.comment}}</p>
             <p>Created: {{comment._createdOn}}</p>  
