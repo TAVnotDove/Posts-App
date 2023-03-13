@@ -1,4 +1,4 @@
-# Angular-Project
+# Posts-App
 My Angular project for SoftUni's regular exam.
 
 After cloning the repository, you need to open
