@@ -1,17 +1,37 @@
-# Angular-Project
-My Angular project for SoftUni's regular exam.
+# **Posts-App**
 
-After cloning the repository, you need to open
-the angular-project folder and install
-the necessary node modules with the command
-`npm i`
+## **Description**
 
-After that, you need to get inside the server folder
-`cd .\server\`
-and run the js file inside it with node
-`node .\server.js`
+This is a Posts App for people to share their
 
-Lastly, you need to start the Angular app with the command
-`ng s`
+thoughts and experiences with others.
 
-It is a blog-type website with user authentication and posts CRUD. [WIP]
+## **How to set up**
+
+In order to use it, first you have to download this git repository.
+
+After that, you need to install the node modules folder
+
+with the command `npm i`
+
+Then you need to run the `ng s` command to start the webpage
+
+and lastly the `node .\server.js` command in the server folder to start the server.
+
+## **How to use**
+
+Guests of the App can view the posts and comments left by other users,
+
+but need to become Users in order to make a post or comment.
+
+The users that own the posts and comments they make can edit or delete them.
+
+## **Project Information**
+
+Project created with Angular CLI.
+
+Server used is SoftUni's Practice Server.
+
+## **Sources**
+
+https://github.com/softuni-practice-server/softuni-practice-server
