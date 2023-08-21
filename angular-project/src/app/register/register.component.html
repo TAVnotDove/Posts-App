@@ -1,13 +1,13 @@
 <form [formGroup]="form" (ngSubmit)="register()">
-    <label>Username:</label>
-    <input formControlName="username" type="text"/>
-    <label>Email:</label>
-    <input formControlName="email" type="email"/>
-    <label>Password:</label>
+    <label for="username">Username:</label>
+    <input formControlName="username" type="text" id="username"/>
+    <label for="email">Email:</label>
+    <input formControlName="email" type="email" id="email"/>
+    <label for="password">Password:</label>
     <ng-container formGroupName="passwords">
-        <input formControlName="password" type="password"/>
-        <label>Confirm password:</label>
-        <input formControlName="confirmPassword" type="password"/>
+        <input formControlName="password" type="password" id="password"/>
+        <label for="confirmPassword">Confirm password:</label>
+        <input formControlName="confirmPassword" type="password" id="confirmPassword"/>
     </ng-container>
     <button [disabled]="!form.valid">Submit</button>
     <ng-container *ngIf="error">
