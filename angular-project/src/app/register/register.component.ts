@@ -24,46 +24,42 @@ export class RegisterComponent {
         password: ["", [Validators.required, passwordValidator()]],
         confirmPassword: [""]
       }, {
-        validators: [confirmPasswordValidator("password", "confirmPassword")]
-      }
+      validators: [confirmPasswordValidator("password", "confirmPassword")]
+    }
     ),
   })
 
   constructor(private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private themesService: ThemesService){}
+    private themesService: ThemesService) { }
 
   register(): void {
     const userData = this.form.value
-    
+
     this.userService.registerUser({
       username: userData.username!,
       email: userData.email!,
       password: userData.passwords?.password!
     }).subscribe({
-        next: (v: any) => {
-          localStorage.setItem("user", JSON.stringify(v));
-          
-          this.themesService.setTheme({theme: "lightTheme"}, v.accessToken).subscribe({
-            next: () => {
-              this.router.navigate(["/"]);
-            },
-            error: (e) => {
-              console.error(e)
-            }
-          })
-        },
-        error: (e) => {
-          if (e.status === 0) {
-            this.error = "The server failed to connect."
-          } else if (e.status === 409) {
-            this.error = "Email is already registered."
-          } else {
-            console.error(e)
-          }
-        }
-    })
+      next: (v: any) => {
+        localStorage.setItem("user", JSON.stringify(v));
 
+        this.router.navigate(["/"]);
+      },
+      error: (e) => {
+        if (e.status === 0) {
+          this.error = "The server failed to connect."
+        } else if (e.status === 409) {
+          this.error = "Email is already registered."
+        } else {
+          console.error(e)
+        }
+      }
+    })
+  }
+
+  getTheme(): string {
+    return this.themesService.getTheme()
   }
 }

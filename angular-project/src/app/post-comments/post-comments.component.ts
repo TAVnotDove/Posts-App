@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CommentsService } from '../services/comments.service';
 import { dateConverter } from '../utils/date-converter.util';
 import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-post-comments',
@@ -21,7 +22,8 @@ export class PostCommentsComponent implements OnInit {
   
   constructor(private fb: FormBuilder,
     private commentsService: CommentsService,
-    private activatedRoute: ActivatedRoute){}
+    private activatedRoute: ActivatedRoute,
+    private themesService: ThemesService){}
 
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem("user")!);
@@ -89,5 +91,9 @@ export class PostCommentsComponent implements OnInit {
           }
         }
     })
+  }
+
+  getTheme(): string {
+    return this.themesService.getTheme()
   }
 }

@@ -1,21 +1,25 @@
-div {
-    border: 1px solid black;
+div#posts {
     width: 250px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 800px;
+    background-color: darkslategray;
 }
 
 div#main {
     height: 80vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: darkslategray;
+    align-items: start;
+    flex-direction: column;
 }
 
 div#post {
     height: 150px;
+    border: 1px solid black;
     background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

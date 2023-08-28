@@ -1,27 +1,29 @@
-<div id="comment-container">
-    <ng-container *ngIf="comments">
-        <div id="comment" *ngFor="let comment of comments">
-            <h4>{{comment.author}}</h4>
-            <p>{{comment.comment}}</p>
-            <p>Created: {{comment._createdOn}}</p>  
-            <p *ngIf="comment._updatedOn">Edited: {{comment._updatedOn}}</p>
-            <ng-container *ngIf="user && comment._ownerId === user._id">
-                <button [routerLink]="['/comment/edit', comment._id]">Edit</button>
-                <button [routerLink]="['/comment/delete', comment._id]">Delete</button>
-            </ng-container>
-        </div>
-    </ng-container>
-    <ng-container *ngIf="!comments">
-        <p>
-            There are currently no comments.
-        </p>
-    </ng-container>
+<div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
+    <div id="comment-container">
+        <ng-container *ngIf="comments">
+            <div id="comment" *ngFor="let comment of comments">
+                <h4>{{comment.author}}</h4>
+                <p>{{comment.comment}}</p>
+                <p>Created: {{comment._createdOn}}</p>
+                <p *ngIf="comment._updatedOn">Edited: {{comment._updatedOn}}</p>
+                <ng-container *ngIf="user && comment._ownerId === user._id">
+                    <button [routerLink]="['/comment/edit', comment._id]">Edit</button>
+                    <button [routerLink]="['/comment/delete', comment._id]">Delete</button>
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!comments">
+            <p>
+                There are currently no comments.
+            </p>
+        </ng-container>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="createComment()">
+        <label>Comment:</label>
+        <input formControlName="comment" type="text" />
+        <button [disabled]="!form.valid">Submit</button>
+        <ng-container *ngIf="error">
+            <p>{{error}}</p>
+        </ng-container>
+    </form>
 </div>
-<form [formGroup]="form" (ngSubmit)="createComment()">
-    <label>Comment:</label>
-    <input formControlName="comment" type="text"/>
-    <button [disabled]="!form.valid">Submit</button>
-    <ng-container *ngIf="error">
-        <p>{{error}}</p>
-    </ng-container>
-</form>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  constructor(private themesService: ThemesService) { }
 
+  getTheme(): string | null {
+    return this.themesService.getTheme()
+  }
 }

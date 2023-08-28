@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../services/posts.service';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-posts',
@@ -9,13 +10,13 @@ import { PostsService } from '../services/posts.service';
 export class PostsComponent implements OnInit {
   error: string | null = null
   posts: any = null
-  
-  constructor(private postsService: PostsService,){}
-  
+
+  constructor(private postsService: PostsService, private themesService: ThemesService) { }
+
   ngOnInit(): void {
     this.postsService.getPosts().subscribe({
       next: (v: any) => {
-        if (v?.length === 0){
+        if (v?.length === 0) {
           this.posts = null
         } else {
           this.posts = v
@@ -27,5 +28,9 @@ export class PostsComponent implements OnInit {
         console.error(e)
       }
     })
+  }
+
+  getTheme(): string {
+    return this.themesService.getTheme()
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder,
     private userService: UserService,
-    private router: Router){}
+    private router: Router,
+    private themesService: ThemesService) { }
 
   login(): void {
     const userData = this.form.value
@@ -27,19 +29,23 @@ export class LoginComponent {
       email: userData.email!,
       password: userData.password!
     }).subscribe({
-        next: (v) => {
-          localStorage.setItem("user", JSON.stringify(v));
-          this.router.navigate(["/"]);
-        },
-        error: (e) => {
-          if (e.status === 0) {
-            this.error = "The server failed to connect."
-          } else if (e.status === 403) {
-            this.error = "Email or password isn't correct."
-          } else {
-            console.error(e)
-          }
+      next: (v) => {
+        localStorage.setItem("user", JSON.stringify(v));
+        this.router.navigate(["/"]);
+      },
+      error: (e) => {
+        if (e.status === 0) {
+          this.error = "The server failed to connect."
+        } else if (e.status === 403) {
+          this.error = "Email or password isn't correct."
+        } else {
+          console.error(e)
         }
+      }
     })
+  }
+
+  getTheme(): string {
+    return this.themesService.getTheme()
   }
 }

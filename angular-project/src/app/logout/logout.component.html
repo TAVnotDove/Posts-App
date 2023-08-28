@@ -1,5 +1,7 @@
-<div>
-    <p>Are you sure you want to logout?</p>
-    <button (click)="logout()">Yes</button>
-    <button routerLink="/posts">No</button>
+<div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
+    <div>
+        <p>Are you sure you want to logout?</p>
+        <button (click)="logout()">Yes</button>
+        <button routerLink="/posts">No</button>
+    </div>
 </div>

@@ -1,10 +1,12 @@
-<form [formGroup]="form" (ngSubmit)="login()">
-    <label for="email">Email:</label>
-    <input formControlName="email" type="email" id="email"/>
-    <label for="password">Password:</label>
-    <input formControlName="password" type="password" id="password"/>
-    <button [disabled]="!form.valid">Submit</button>
-    <ng-container *ngIf="error">
-        <p>{{error}}</p>
-    </ng-container>
-</form>
+<div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
+    <form [formGroup]="form" (ngSubmit)="login()">
+        <label for="email">Email:</label>
+        <input formControlName="email" type="email" id="email" />
+        <label for="password">Password:</label>
+        <input formControlName="password" type="password" id="password" />
+        <button [disabled]="!form.valid">Submit</button>
+        <ng-container *ngIf="error">
+            <p>{{error}}</p>
+        </ng-container>
+    </form>
+</div>

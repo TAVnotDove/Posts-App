@@ -1,11 +1,11 @@
-<div id="main">
-    <form [formGroup]="form" (ngSubmit)="changeTheme()">
+<div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
+    <form [formGroup]="form">
         <label>Username:</label>
-        <input formControlName="username" type="text"/>
+        <input formControlName="username" type="text" />
         <label>Email:</label>
-        <input formControlName="email" type="email"/>
+        <input formControlName="email" type="email" />
         <label>Created:</label>
-        <input formControlName="created" type="text"/>
+        <input formControlName="created" type="text" />
         <button [routerLink]="['/profile/posts', user._id]">My posts</button>
     </form>
 </div>

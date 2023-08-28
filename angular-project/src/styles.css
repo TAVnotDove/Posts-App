@@ -5,4 +5,14 @@ html, body {
 body {
     background-color: #252222;
     color: white;
+    margin: 0;
+}
+
+.dark {
+    background-color: #252222;
+}
+
+.light {
+    background-color: white;
+    color: black;
 }

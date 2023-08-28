@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { PostsService } from '../services/posts.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-edit-post',
@@ -22,7 +23,8 @@ export class EditPostComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private postsService: PostsService,
     private router: Router,
-    private activatedRoute: ActivatedRoute){}
+    private activatedRoute: ActivatedRoute,
+    private themesService: ThemesService){}
 
   ngOnInit(): void {
     const postId = this.activatedRoute.snapshot.paramMap.get("postId")
@@ -66,5 +68,9 @@ export class EditPostComponent implements OnInit {
         }
       }
     })
+  }
+
+  getTheme(): string {
+    return this.themesService.getTheme()
   }
 }

@@ -1,8 +1,10 @@
-<div>
-    <p>Are you sure you want to delete this post?</p>
-    <button (click)="deletePost()">Yes</button>
-    <button routerLink="/posts">No</button>
-    <ng-container *ngIf="error">
-        <p>{{error}}</p>
-    </ng-container>
+<div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
+    <div>
+        <p>Are you sure you want to delete this post?</p>
+        <button (click)="deletePost()">Yes</button>
+        <button routerLink="/posts">No</button>
+        <ng-container *ngIf="error">
+            <p>{{error}}</p>
+        </ng-container>
+    </div>
 </div>

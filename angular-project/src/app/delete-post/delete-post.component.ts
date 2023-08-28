@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from '../services/posts.service';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-delete-post',
@@ -12,7 +13,8 @@ export class DeletePostComponent {
 
   constructor(private router: Router,
     private postsService: PostsService,
-    private activatedRoute: ActivatedRoute){}
+    private activatedRoute: ActivatedRoute,
+    private themesService: ThemesService){}
   
   deletePost(): void {
     const postId = this.activatedRoute.snapshot.paramMap.get("postId")
@@ -32,5 +34,9 @@ export class DeletePostComponent {
         }
       }
   })
+  }
+
+  getTheme(): string {
+    return this.themesService.getTheme()
   }
 }

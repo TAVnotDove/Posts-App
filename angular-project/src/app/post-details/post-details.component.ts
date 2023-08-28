@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../services/posts.service';
 import { dateConverter } from '../utils/date-converter.util';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-post-details',
@@ -12,8 +13,10 @@ export class PostDetailsComponent {
   post: any = null
   isOwner: boolean = false
 
-  constructor(private postsService: PostsService, private activatedRoute: ActivatedRoute){}
-  
+  constructor(private postsService: PostsService,
+    private activatedRoute: ActivatedRoute,
+    private themesService: ThemesService) { }
+
   ngOnInit(): void {
     const postId = this.activatedRoute.snapshot.paramMap.get("postId")
     const user = JSON.parse(localStorage.getItem("user")!);
@@ -25,7 +28,7 @@ export class PostDetailsComponent {
         if (v._updatedOn) {
           v._updatedOn = dateConverter(v._updatedOn)
         }
-        
+
         this.post = v
 
         if (user) {
@@ -38,5 +41,9 @@ export class PostDetailsComponent {
         console.error(e)
       }
     })
+  }
+
+  getTheme(): string {
+    return this.themesService.getTheme()
   }
 }

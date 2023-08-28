@@ -15,48 +15,30 @@ export class ProfileComponent implements OnInit {
     username: [""],
     email: [""],
     created: [""],
-    theme: ["lightTheme"]
   })
 
-  constructor(private fb: FormBuilder, private themesService: ThemesService){}
-  
+  constructor(private fb: FormBuilder, private themesService: ThemesService) { }
+
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem("user")!);
 
-    this.themesService.getThemes().subscribe({
-      next: (v: any) => {
-            console.log(v)
-            const theme = v.filter((x: any) => x._ownerId === this.user._id)
-        console.log(theme)
-                this.form = this.fb.group({
-                  username: [{
-                    value: this.user.username,
-                    disabled: true,
-                  }],
-                  email: [{
-                    value: this.user.email,
-                    disabled: true,
-                  }],
-                  created: [{
-                    value: dateConverter(this.user._createdOn),
-                    disabled: true,
-                  }],
-                  theme: [{
-                    value: theme
-                  }],
-                })
-          },
-          error: (e) => {
-            console.error(e)
-          }
+    this.form = this.fb.group({
+      username: [{
+        value: this.user.username,
+        disabled: true,
+      }],
+      email: [{
+        value: this.user.email,
+        disabled: true,
+      }],
+      created: [{
+        value: dateConverter(this.user._createdOn),
+        disabled: true,
+      }],
     })
   }
 
-  changeTheme(): void {
-    const profileData = this.form.value
-
-    this.themesService.changeTheme({theme: profileData.theme}, this.user.accessToken, this.user._id)
-    console.log(profileData)
-    document.body.classList.toggle("dark-theme");
+  getTheme(): string {
+    return this.themesService.getTheme()
   }
 }

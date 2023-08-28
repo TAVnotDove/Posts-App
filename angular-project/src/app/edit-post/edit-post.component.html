@@ -1,10 +1,12 @@
-<form [formGroup]="form" (ngSubmit)="editPost()">
-    <label>Title:</label>
-    <input formControlName="title" type="text"/>
-    <label>Text:</label>
-    <input formControlName="text" type="text"/>
-    <button [disabled]="!form.valid">Save changes</button>
-    <ng-container *ngIf="error">
-        <p>{{error}}</p>
-    </ng-container>
-</form>
+<div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
+    <form [formGroup]="form" (ngSubmit)="editPost()">
+        <label>Title:</label>
+        <input formControlName="title" type="text" />
+        <label>Text:</label>
+        <input formControlName="text" type="text" />
+        <button [disabled]="!form.valid">Save changes</button>
+        <ng-container *ngIf="error">
+            <p>{{error}}</p>
+        </ng-container>
+    </form>
+</div>

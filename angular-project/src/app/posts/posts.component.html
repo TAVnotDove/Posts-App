@@ -1,5 +1,5 @@
-<div id="main">
-    <div>
+<div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
+    <div id="posts">
         <ng-container *ngIf="posts">
             <div id="post" *ngFor="let post of posts">
                 <h2>{{post.title}}</h2>
