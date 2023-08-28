@@ -6,6 +6,11 @@ nav {
     gap: 20px;
 }
 
+img {
+    width: 2rem;
+    height: 2rem;
+}
+
 a {
     text-decoration: none;
     color: black;
