@@ -1,6 +1,6 @@
 div {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     height: 80vh;
     padding-left: 3rem;
