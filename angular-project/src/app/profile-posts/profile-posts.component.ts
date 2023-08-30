@@ -11,6 +11,7 @@ import { ThemesService } from '../services/themes.service';
 export class ProfilePostsComponent {
   error: string | null = null
   posts: any = null
+  loading: boolean = true
 
   constructor(private postsService: PostsService,
     private activatedRoute: ActivatedRoute,
@@ -21,6 +22,8 @@ export class ProfilePostsComponent {
 
     this.postsService.getPosts().subscribe({
       next: (v: any) => {
+        this.loading = false
+
         if (v?.length === 0) {
           this.posts = null
         } else {

@@ -12,6 +12,7 @@ import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
 export class EditCommentComponent implements OnInit  {
   error: string | null = null
   comment: any = null
+  loading: boolean = true
 
   form = this.fb.group({
     comment: ["", [Validators.required, trimmedLengthValidator(1)]]
@@ -27,6 +28,7 @@ export class EditCommentComponent implements OnInit  {
     
     this.commentsService.getComment(commentId!).subscribe({
       next: (v: any) => {
+        this.loading = false
         this.comment = v
         
         this.form = this.fb.group({

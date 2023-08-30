@@ -1,5 +1,6 @@
 <div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
     <div id="comment-container">
+        <p *ngIf="loading">Loading...</p>
         <ng-container *ngIf="comments">
             <div id="comment" *ngFor="let comment of comments">
                 <h4>{{comment.author}}</h4>
@@ -12,7 +13,7 @@
                 </ng-container>
             </div>
         </ng-container>
-        <ng-container *ngIf="!comments">
+        <ng-container *ngIf="!comments && !loading">
             <p>
                 There are currently no comments.
             </p>

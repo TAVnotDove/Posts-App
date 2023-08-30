@@ -12,6 +12,7 @@ import { ThemesService } from '../services/themes.service';
 export class PostDetailsComponent {
   post: any = null
   isOwner: boolean = false
+  loading: boolean = true
 
   constructor(private postsService: PostsService,
     private activatedRoute: ActivatedRoute,
@@ -23,6 +24,8 @@ export class PostDetailsComponent {
 
     this.postsService.getPost(postId!).subscribe({
       next: (v: any) => {
+        this.loading = false
+        
         v._createdOn = dateConverter(v._createdOn)
 
         if (v._updatedOn) {

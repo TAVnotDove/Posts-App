@@ -1,4 +1,5 @@
 <div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
+        <p *ngIf="loading">Loading...</p>
         <ng-container *ngIf="post">
                 <div id="post">
                         <h2>{{post.title}}</h2>

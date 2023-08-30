@@ -1,5 +1,6 @@
 <div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
     <div id="posts">
+        <p *ngIf="loading">Loading...</p>
         <ng-container *ngIf="posts">
             <div id="post" *ngFor="let post of posts">
                 <h2>{{post.title}}</h2>
@@ -7,7 +8,7 @@
                 <button [routerLink]="['/post/details', post._id]">Details</button>
             </div>
         </ng-container>
-        <ng-container *ngIf="!posts">
+        <ng-container *ngIf="!posts && !loading">
             <p>
                 You have not created any posts yet.
             </p>

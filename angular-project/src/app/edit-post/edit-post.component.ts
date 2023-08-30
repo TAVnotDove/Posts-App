@@ -12,6 +12,7 @@ import { ThemesService } from '../services/themes.service';
 })
 export class EditPostComponent implements OnInit {
   error: string | null = null
+  loading: boolean = true
 
   form = this.fb.group({
     title: ["", [Validators.required, trimmedLengthValidator(1)]],
@@ -31,6 +32,7 @@ export class EditPostComponent implements OnInit {
     
     this.postsService.getPost(postId!).subscribe({
       next: (v) => {
+        this.loading = false
         this.post = v
 
         this.form = this.fb.group({
