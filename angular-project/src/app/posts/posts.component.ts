@@ -27,6 +27,8 @@ export class PostsComponent implements OnInit {
       },
       error: (e) => {
         if (e.status === 0) this.error = "The server failed to connect."
+        
+        if (e.status === 404) this.loading = false
 
         console.error(e)
       }

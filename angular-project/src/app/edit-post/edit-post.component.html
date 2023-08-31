@@ -1,6 +1,6 @@
 <div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
     <form [formGroup]="form" (ngSubmit)="editPost()">
-        <p *ngIf="loading">Loading...</p>
+        <p *ngIf="loading && !error">Loading...</p>
         <ng-container *ngIf="!loading">
             <label>Title:</label>
             <input formControlName="title" type="text" />

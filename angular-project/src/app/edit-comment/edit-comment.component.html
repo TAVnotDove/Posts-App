@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="editComment()">
-    <p *ngIf="loading">Loading...</p>
+    <p *ngIf="loading && !error">Loading...</p>
     <ng-container *ngIf="!loading">
         <label>Comment:</label>
         <input formControlName="comment" type="text" />
