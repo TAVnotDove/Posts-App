@@ -1,9 +1,9 @@
 <nav [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
     <ng-container *ngIf="getTheme() === 'dark'">
-        <img (click)="changeTheme()" src="assets/icons/moon-icon.svg" alt="moon-icon">
+        <img (click)="changeTheme()" src="assets/icons/moon-icon.svg" alt="moon-icon" class="cursor-pointer">
     </ng-container>
     <ng-container *ngIf="getTheme() === 'light'">
-        <img (click)="changeTheme()" src="assets/icons/sun-icon.svg" alt="sun-icon">
+        <img (click)="changeTheme()" src="assets/icons/sun-icon.svg" alt="sun-icon" class="cursor-pointer">
     </ng-container>
     <ng-container *ngIf="isLoggedIn">
         <a routerLink="/posts">Posts</a>
