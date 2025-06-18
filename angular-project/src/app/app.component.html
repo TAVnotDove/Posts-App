@@ -1,5 +1,5 @@
 <app-navigation [isLoggedIn]="userIsLoggedIn"></app-navigation>
-<main class="flex justify-center items-center">
+<main [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'" class="flex justify-center items-center">
     <router-outlet></router-outlet>
 </main>
 <app-footer-component></app-footer-component>
