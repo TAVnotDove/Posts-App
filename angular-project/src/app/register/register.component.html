@@ -1,5 +1,5 @@
 <div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
-    <form [formGroup]="form" (ngSubmit)="register()">
+    <form [formGroup]="form" (ngSubmit)="register()" class="flex justify-center">
         <label for="username">Username:</label>
         <input formControlName="username" type="text" id="username" />
         <label for="email">Email:</label>

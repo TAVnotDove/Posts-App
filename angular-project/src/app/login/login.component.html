@@ -1,5 +1,5 @@
 <div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
-    <form [formGroup]="form" (ngSubmit)="login()">
+    <form [formGroup]="form" (ngSubmit)="login()" class="flex justify-center">
         <label for="email">Email:</label>
         <input formControlName="email" type="email" id="email" />
         <label for="password">Password:</label>

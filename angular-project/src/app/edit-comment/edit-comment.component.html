@@ -1,11 +1,13 @@
-<form [formGroup]="form" (ngSubmit)="editComment()">
-    <p *ngIf="loading && !error">Loading...</p>
-    <ng-container *ngIf="!loading">
-        <label>Comment:</label>
-        <input formControlName="comment" type="text" />
-        <button [disabled]="!form.valid">Save changes</button>
-        <ng-container *ngIf="error">
-            <p>{{error}}</p>
+<div id="main" class="flex justify-center items-center">
+    <form [formGroup]="form" (ngSubmit)="editComment()">
+        <p *ngIf="loading && !error">Loading...</p>
+        <ng-container *ngIf="!loading">
+            <label>Comment:</label>
+            <input formControlName="comment" type="text" />
+            <button [disabled]="!form.valid">Save changes</button>
+            <ng-container *ngIf="error">
+                <p>{{error}}</p>
+            </ng-container>
         </ng-container>
-    </ng-container>
-</form>
+    </form>
+</div>
