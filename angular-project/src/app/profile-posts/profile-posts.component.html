@@ -2,7 +2,7 @@
     <div id="posts">
         <p *ngIf="loading && !error">Loading...</p>
         <ng-container *ngIf="posts">
-            <div id="post" *ngFor="let post of posts">
+            <div id="post" *ngFor="let post of posts" class="bg-pa-gray-300">
                 <h2>{{post.title}}</h2>
                 <p>By {{post.username}}</p>
                 <button [routerLink]="['/post/details', post._id]">Details</button>

@@ -17,7 +17,6 @@ div#main {
 div#post {
     height: 150px;
     border: 1px solid black;
-    background-color: gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
