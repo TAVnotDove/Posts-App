@@ -1,27 +1,27 @@
 <div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
     <form [formGroup]="form" (ngSubmit)="register()" class="flex justify-center">
-        <label for="username">Username:</label>
-        <input formControlName="username" type="text" id="username" />
-        <label for="email">Email:</label>
-        <input formControlName="email" type="email" id="email" />
-        <label for="password">Password:</label>
+        <label for="username" class="mt-1">Username:</label>
+        <input formControlName="username" type="text" id="username" class="bg-pa-gray-100 p-1" />
+        <label for="email" class="mt-1">Email:</label>
+        <input formControlName="email" type="email" id="email" class="bg-pa-gray-100 p-1" />
+        <label for="password" class="mt-1">Password:</label>
         <ng-container formGroupName="passwords">
-            <input formControlName="password" type="password" id="password" />
-            <label for="confirmPassword">Confirm password:</label>
-            <input formControlName="confirmPassword" type="password" id="confirmPassword" />
+            <input formControlName="password" type="password" id="password" class="bg-pa-gray-100 p-1" />
+            <label for="confirmPassword" class="mt-1">Confirm password:</label>
+            <input formControlName="confirmPassword" type="password" id="confirmPassword" class="bg-pa-gray-100 p-1"/>
         </ng-container>
-        <button [disabled]="!form.valid">Submit</button>
+        <button [disabled]="!form.valid" class="my-1 disabled:opacity-50">Submit</button>
         <ng-container *ngIf="error">
             <p>{{error}}</p>
         </ng-container>
         <ng-container *ngIf="form.get('username')?.errors?.['trimmedLengthValidator']">
-            <p>Username needs to be longer than 3 characters.</p>
+            <p class="mt-1">Username needs to be longer than 3 characters.</p>
         </ng-container>
         <ng-container *ngIf="form.get('email')?.errors?.['emailValidator']">
-            <p>Email needs to be valid.</p>
+            <p class="mt-1">Email needs to be valid.</p>
         </ng-container>
         <ng-container *ngIf="form.get('passwords')?.get('password')?.errors?.['passwordValidator']">
-            <p>Password should:
+            <p class="mt-1">Password should:
                 <br />
                 -be at least 6 characters long;
                 <br />
@@ -29,7 +29,7 @@
             </p>
         </ng-container>
         <ng-container *ngIf="form.get('passwords')?.errors?.['confirmPasswordValidator']">
-            <p>Passwords need to match.</p>
+            <p class="mt-1">Passwords need to match.</p>
         </ng-container>
     </form>
 </div>

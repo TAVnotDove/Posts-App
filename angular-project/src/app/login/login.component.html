@@ -1,10 +1,10 @@
 <div id="main" [class.dark]="getTheme() === 'dark'" [class.light]="getTheme() === 'light'">
     <form [formGroup]="form" (ngSubmit)="login()" class="flex justify-center">
-        <label for="email">Email:</label>
-        <input formControlName="email" type="email" id="email" />
-        <label for="password">Password:</label>
-        <input formControlName="password" type="password" id="password" />
-        <button [disabled]="!form.valid">Submit</button>
+        <label for="email" class="mt-1">Email:</label>
+        <input formControlName="email" type="email" id="email" class="bg-pa-gray-100 p-1" />
+        <label for="password" class="mt-1">Password:</label>
+        <input formControlName="password" type="password" id="password" class="bg-pa-gray-100 p-1"/>
+        <button [disabled]="!form.valid" class="my-1 disabled:opacity-50">Submit</button>
         <ng-container *ngIf="error">
             <p>{{error}}</p>
         </ng-container>
