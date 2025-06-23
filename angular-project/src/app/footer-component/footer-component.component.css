@@ -4,3 +4,13 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+footer.light {
+    background-color: #eeeeee;
+    color: #333333;
+}
+
+footer.dark {
+    background-color: #3a3a3a;
+    color: white;
+}
