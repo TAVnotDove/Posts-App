@@ -18,5 +18,9 @@ body {
 
 .light {
     background-color: white;
-    color: black;
+    color: #333333;
+}
+
+input {
+    color: #333333;
 }
