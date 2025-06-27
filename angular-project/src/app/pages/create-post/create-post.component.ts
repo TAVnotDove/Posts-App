@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { PostsService } from '../services/posts.service';
+import { PostsService } from '../../services/posts.service';
 import { Router } from '@angular/router';
-import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
+import { trimmedLengthValidator } from '../../validators/trimmed-length.validator';
 
 @Component({
   selector: 'app-create-post',

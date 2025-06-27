@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { CommentsService } from '../services/comments.service';
-import { dateConverter } from '../utils/date-converter.util';
-import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
-import { ThemesService } from '../services/themes.service';
+import { CommentsService } from '../../services/comments.service';
+import { dateConverter } from '../../utils/date-converter.util';
+import { trimmedLengthValidator } from '../../validators/trimmed-length.validator';
+import { ThemesService } from '../../services/themes.service';
 
 @Component({
   selector: 'app-post-comments',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommentsService } from '../services/comments.service';
-import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
+import { CommentsService } from '../../services/comments.service';
+import { trimmedLengthValidator } from '../../validators/trimmed-length.validator';
 
 @Component({
   selector: 'app-edit-comment',

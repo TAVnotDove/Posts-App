@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommentsService } from '../services/comments.service';
+import { CommentsService } from '../../services/comments.service';
 
 @Component({
   selector: 'app-delete-comment',

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
-import { confirmPasswordValidator } from '../validators/confirm-passwords.validator';
-import { emailValidator } from '../validators/email.validator';
-import { passwordValidator } from '../validators/password.validator';
-import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
-import { ThemesService } from '../services/themes.service';
+import { confirmPasswordValidator } from '../../validators/confirm-passwords.validator';
+import { emailValidator } from '../../validators/email.validator';
+import { passwordValidator } from '../../validators/password.validator';
+import { trimmedLengthValidator } from '../../validators/trimmed-length.validator';
+import { ThemesService } from '../../services/themes.service';
 
 @Component({
   selector: 'app-register',

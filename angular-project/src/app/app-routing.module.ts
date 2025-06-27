@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { LogoutComponent } from './logout/logout.component';
-import { ProfileComponent } from './profile/profile.component';
-import { PostsComponent } from './posts/posts.component';
-import { CreatePostComponent } from './create-post/create-post.component';
-import { EditPostComponent } from './edit-post/edit-post.component';
-import { DeletePostComponent } from './delete-post/delete-post.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LogoutComponent } from './pages/logout/logout.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
+import { EditPostComponent } from './pages/edit-post/edit-post.component';
+import { DeletePostComponent } from './pages/delete-post/delete-post.component';
 import { NotAuthenticatedGuard } from './guards/not-authenticated.guard';
 import { AuthenticatedGuard } from './guards/authenticated.guard';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PostDetailsComponent } from './post-details/post-details.component';
-import { EditCommentComponent } from './edit-comment/edit-comment.component';
-import { DeleteCommentComponent } from './delete-comment/delete-comment.component';
-import { ProfilePostsComponent } from './profile-posts/profile-posts.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PostDetailsComponent } from './pages/post-details/post-details.component';
+import { EditCommentComponent } from './pages/edit-comment/edit-comment.component';
+import { DeleteCommentComponent } from './pages/delete-comment/delete-comment.component';
+import { ProfilePostsComponent } from './pages/profile-posts/profile-posts.component';
 
 const routes: Routes = [{
   path: "",

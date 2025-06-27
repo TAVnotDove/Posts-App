@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PostsService } from '../services/posts.service';
-import { dateConverter } from '../utils/date-converter.util';
-import { ThemesService } from '../services/themes.service';
+import { PostsService } from '../../services/posts.service';
+import { dateConverter } from '../../utils/date-converter.util';
+import { ThemesService } from '../../services/themes.service';
 
 @Component({
   selector: 'app-post-details',

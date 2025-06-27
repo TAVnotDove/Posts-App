@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemesService } from '../services/themes.service';
+import { ThemesService } from '../../services/themes.service';
 
 @Component({
   selector: 'app-home',

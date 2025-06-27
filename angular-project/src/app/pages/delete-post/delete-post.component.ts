@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PostsService } from '../services/posts.service';
-import { ThemesService } from '../services/themes.service';
+import { PostsService } from '../../services/posts.service';
+import { ThemesService } from '../../services/themes.service';
 
 @Component({
   selector: 'app-delete-post',

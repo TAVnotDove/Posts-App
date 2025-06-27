@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ThemesService } from '../services/themes.service';
-import { dateConverter } from '../utils/date-converter.util';
+import { ThemesService } from '../../services/themes.service';
+import { dateConverter } from '../../utils/date-converter.util';
 
 @Component({
   selector: 'app-profile',

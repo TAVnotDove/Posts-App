@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { PostsService } from '../services/posts.service';
+import { PostsService } from '../../services/posts.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { trimmedLengthValidator } from '../validators/trimmed-length.validator';
-import { ThemesService } from '../services/themes.service';
+import { trimmedLengthValidator } from '../../validators/trimmed-length.validator';
+import { ThemesService } from '../../services/themes.service';
 
 @Component({
   selector: 'app-edit-post',
