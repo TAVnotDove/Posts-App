@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -21,7 +21,7 @@ import { PostCommentsComponent } from './pages/post-comments/post-comments.compo
 import { EditCommentComponent } from './pages/edit-comment/edit-comment.component';
 import { DeleteCommentComponent } from './pages/delete-comment/delete-comment.component';
 import { ProfilePostsComponent } from './pages/profile-posts/profile-posts.component';
-import { FooterComponentComponent } from './footer-component/footer-component.component';
+import { FooterComponentComponent } from './components/footer-component/footer-component.component';
 
 @NgModule({
   declarations: [
