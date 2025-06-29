@@ -3,7 +3,7 @@
     <input formControlName="title" type="text"/>
     <label>Text:</label>
     <input formControlName="text" type="text"/>
-    <button [disabled]="!form.valid">Submit</button>
+    <app-custom-button [isDisabled]="!form.valid">Submit</app-custom-button>
     <ng-container *ngIf="error">
         <p>{{error}}</p>
     </ng-container>

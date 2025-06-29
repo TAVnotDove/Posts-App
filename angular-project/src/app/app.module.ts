@@ -22,6 +22,7 @@ import { EditCommentComponent } from './pages/edit-comment/edit-comment.componen
 import { DeleteCommentComponent } from './pages/delete-comment/delete-comment.component';
 import { ProfilePostsComponent } from './pages/profile-posts/profile-posts.component';
 import { FooterComponentComponent } from './components/footer-component/footer-component.component';
+import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FooterComponentComponent } from './components/footer-component/footer-c
     EditCommentComponent,
     DeleteCommentComponent,
     ProfilePostsComponent,
-    FooterComponentComponent
+    FooterComponentComponent,
+    CustomButtonComponent
   ],
   imports: [
     BrowserModule,
