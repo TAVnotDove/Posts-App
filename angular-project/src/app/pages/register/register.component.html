@@ -6,9 +6,9 @@
         <input formControlName="email" type="email" id="email" class="bg-pa-gray-100 p-1" />
         <label for="password" class="mt-1">Password:</label>
         <ng-container formGroupName="passwords">
-            <input formControlName="password" type="password" id="password" class="bg-pa-gray-100 p-1" />
+            <app-custom-input class="relative" id="password" type="password" [fc]="form.controls.passwords.controls.password"/>
             <label for="confirmPassword" class="mt-1">Confirm password:</label>
-            <input formControlName="confirmPassword" type="password" id="confirmPassword" class="bg-pa-gray-100 p-1"/>
+            <app-custom-input class="relative" id="confirmPassword" type="password" [fc]="form.controls.passwords.controls.confirmPassword"/>
         </ng-container>
         <button [disabled]="!form.valid" class="my-1 disabled:opacity-50">Submit</button>
         <ng-container *ngIf="error">

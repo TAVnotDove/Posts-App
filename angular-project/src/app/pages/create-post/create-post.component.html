@@ -1,8 +1,8 @@
 <form [formGroup]="form" (ngSubmit)="createPost()" class="flex justify-center">
     <label>Title:</label>
-    <input formControlName="title" type="text"/>
+    <app-custom-input [fc]="form.controls.title"/>
     <label>Text:</label>
-    <input formControlName="text" type="text"/>
+    <app-custom-input [fc]="form.controls.text"/>
     <app-custom-button [isDisabled]="!form.valid">Submit</app-custom-button>
     <ng-container *ngIf="error">
         <p>{{error}}</p>

@@ -1,0 +1,8 @@
+<input [formControl]="fc" [type]="inputType" [id]="id" [class]="'w-full bg-pa-gray-100 p-1 ' + (type === 'password' ? 'pr-9' : '')" />
+<img
+*ngIf="type === 'password'"
+(click)="showPassword()"
+class="w-7 h-7 absolute top-0 right-1 cursor-pointer"
+[src]="'assets/icons/eye' + (inputType === 'password' ? '' : '-slash') + '.svg'"
+alt="password-eye"
+/>

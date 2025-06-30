@@ -23,6 +23,7 @@ import { DeleteCommentComponent } from './pages/delete-comment/delete-comment.co
 import { ProfilePostsComponent } from './pages/profile-posts/profile-posts.component';
 import { FooterComponentComponent } from './components/footer-component/footer-component.component';
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
+import { CustomInputComponent } from './components/custom-input/custom-input.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CustomButtonComponent } from './components/custom-button/custom-button.
     DeleteCommentComponent,
     ProfilePostsComponent,
     FooterComponentComponent,
-    CustomButtonComponent
+    CustomButtonComponent,
+    CustomInputComponent
   ],
   imports: [
     BrowserModule,
